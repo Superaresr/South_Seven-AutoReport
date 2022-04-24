@@ -90,7 +90,7 @@ class Report(object):
         resp=session.post(url, data=data, headers=headers)
         print(resp)
         res = session.get("https://weixine.ustc.edu.cn/2020/apply/daliy/i?t=3")
-        if(res.status_code < 400 and (res.url == "https://weixine.ustc.edu.cn/2020/upload/xcm" or res.url == "https://weixine.ustc.edu.cn/2020/apply/daliy/i?t=3"):
+        if(res.status_code < 400 and (res.url == "https://weixine.ustc.edu.cn/2020/upload/xcm" or res.url == "https://weixine.ustc.edu.cn/2020/apply/daliy/i?t=3")):
             print("report success!")
         elif(res.status_code < 400 and res.url != "https://weixine.ustc.edu.cn/2020/upload/xcm"):
             print(res.url)
@@ -113,11 +113,11 @@ class Report(object):
                 continue
             if(self.pic[idx - 1] == ''):
                 self.pic[idx - 1] = DEFAULT_PIC[idx - 1]
-            print(self.pic[idx - 1])
+            #print(self.pic[idx - 1])
             ret = session.get(self.pic[idx - 1])
             blob = ret.content
-            print(len(blob))
-            print(ret.status_code)
+            #print(len(blob))
+            #print(ret.status_code)
             if blob == None or ret.status_code != 200:
                 print(f"ignore {description}.")
                 continue        
